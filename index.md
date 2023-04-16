@@ -1,3 +1,4 @@
+# RedCat
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,9 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-    <title>肥猫 | ✎ℳ𝓪𝓸</title>
-    <meta name="description" content="肥猫的个人网站，期待与更多的人相遇！">
-    <meta name="keywords" content="肥猫fatcat">
+    <title>RedCat | ✎ℳ𝓪𝓸</title>
+    <meta name="description" content="RedCat的个人网站，期待与更多的人相遇！">
+    <meta name="keywords" content="RedCat红猫">
     <link rel="stylesheet" type="text/css" href="css/h.9c69ed6c.css">
     <link rel="stylesheet" type="text/css" href="css/nekotora.99cf6f8c.css">
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137340638-1"></script>
@@ -37,7 +38,7 @@
                 <h2>
                     <div class="circle"> <span></span> <span></span>
                         <span></span>
-                    </div> 肥猫
+                    </div> RedCat
                 </h2>
             </div>
         </div>
@@ -337,7 +338,7 @@
         </div>
         <div class="footer ch">
             <div class="container">
-                <h3>星光满载 初心不改 © 2023 肥猫</h3>
+                <h3>星光满载 初心不改 © 2023 RedCat</h3>
             </div>
         </div>
     </div>
@@ -356,7 +357,7 @@
             let clipboard = new ClipboardJS(id);
             clipboard.on('success', function (e) {
                 console.log(e);
-                alert('肥猫提醒：复制成功，请前往tvbox接口粘贴')
+                alert('RedCat提醒：复制成功，请前往tvbox接口粘贴')
                 clipboard.destroy();//解决多次弹窗问题
             });
             clipboard.on('error', function (e) {
