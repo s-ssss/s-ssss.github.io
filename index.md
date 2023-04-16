@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,9 +8,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-    <title>肥猫 | ✎ℳ𝓪𝓸</title>
-    <meta name="description" content="肥猫的个人网站，期待与更多的人相遇！">
-    <meta name="keywords" content="肥猫fatcat">
+    <title>RedCat
+ | ✎ℳ𝓪𝓸</title>
+    <meta name="description" content="RedCat
+的个人网站，期待与更多的人相遇！">
+    <meta name="keywords" content="RedCat
+">
     <link rel="stylesheet" type="text/css" href="css/h.9c69ed6c.css">
     <link rel="stylesheet" type="text/css" href="css/nekotora.99cf6f8c.css">
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137340638-1"></script>
@@ -37,7 +42,8 @@
                 <h2>
                     <div class="circle"> <span></span> <span></span>
                         <span></span>
-                    </div> 肥猫
+                    </div> RedCat
+
                 </h2>
             </div>
         </div>
@@ -50,7 +56,8 @@
                     <img class="avatar" src="https://q1.qlogo.cn/g?b=qq&nk=381203888&s=640">
                     <p>当你征服了一座山峰时，它已经在你脚下了，你必须再找一座山峰去征服，否则，你只有下山，走下坡路！</p>
                     <p style="padding-bottom:1em;">How lucky to meet you!</p>
-                    <p>你好，这里是肥猫 <sup>fatcat</sup> ，对有趣的世界和可能有趣的你充满好奇，热爱折腾~</p>
+                    <p>你好，这里是RedCat
+ <sup>fatcat</sup> ，对有趣的世界和可能有趣的你充满好奇，热爱折腾~</p>
                     <p>希望能与你在比特之海的繁星之下相见！</p>
                     <div class="chatbox">
                         <div class="line loading"> <span></span>
@@ -311,33 +318,14 @@
                             <h5>爱达杂货铺</h5>
                             <p>收集那些有用的东西</p>
                         </div>
-                    </div>
-                </a>
-                <a href="http://i.xn--z7x900a.love:63/" target="_blank">
-                    <div class="item">
-                        <div class="avatar"> <img src="http://xn--z7x900a.love/kanqiao-1-12.png"></div>
-                        <div class="inner">
-                            <h5>肥猫影视</h5>
-                            <p>无广告无弹窗，蓝光免费在线观看，看你想看的</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="http://xn--4bra.live/ad/sangzitang.html" target="_blank">
-                    <div class="item">
-                        <div class="avatar"> <img src="http://xn--z7x900a.love/nannv.png"></div>
-                        <div class="inner">
-                            <h5>壮阳|补肾</h5>
-                            <p>纯中药！可试用！无效退！送两性技巧教程</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
+
             <!--底部波浪-->
             <div id="hans-bolang"></div><script src="https://api.vvhan.com/api/bolang"></script>
         </div>
         <div class="footer ch">
             <div class="container">
-                <h3>星光满载 初心不改 © 2023 肥猫</h3>
+                <h3>星光满载 初心不改 © 2023 RedCat
+</h3>
             </div>
         </div>
     </div>
@@ -356,7 +344,8 @@
             let clipboard = new ClipboardJS(id);
             clipboard.on('success', function (e) {
                 console.log(e);
-                alert('肥猫提醒：复制成功，请前往tvbox接口粘贴')
+                alert('RedCat
+提醒：复制成功，请前往tvbox接口粘贴')
                 clipboard.destroy();//解决多次弹窗问题
             });
             clipboard.on('error', function (e) {
