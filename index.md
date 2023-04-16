@@ -1,4 +1,4 @@
-# RedCat
+# RedCat的个人网站，期待与更多的人相遇！
 <!DOCTYPE html>
 <html lang="en">
 
