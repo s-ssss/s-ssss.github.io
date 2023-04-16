@@ -1,5 +1,3 @@
-# RedCat
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,12 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-    <title>RedCat
- | ✎ℳ𝓪𝓸</title>
-    <meta name="description" content="RedCat
-的个人网站，期待与更多的人相遇！">
-    <meta name="keywords" content="RedCat
-">
+    <title>肥猫 | ✎ℳ𝓪𝓸</title>
+    <meta name="description" content="肥猫的个人网站，期待与更多的人相遇！">
+    <meta name="keywords" content="肥猫fatcat">
     <link rel="stylesheet" type="text/css" href="css/h.9c69ed6c.css">
     <link rel="stylesheet" type="text/css" href="css/nekotora.99cf6f8c.css">
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137340638-1"></script>
@@ -42,8 +37,7 @@
                 <h2>
                     <div class="circle"> <span></span> <span></span>
                         <span></span>
-                    </div> RedCat
-
+                    </div> 肥猫
                 </h2>
             </div>
         </div>
@@ -53,11 +47,10 @@
             <h2 class="chtitle">Who is <span> </span></h2>
             <div class="clear">
                 <div class="introduct">
-                    <img class="avatar" src="https://jihulab.com/5ss/s/-/raw/main/logo/%E7%9B%B4%E6%92%AD%E5%9B%BE/NAB.png?inline=false">
+                    <img class="avatar" src="https://q1.qlogo.cn/g?b=qq&nk=381203888&s=640">
                     <p>当你征服了一座山峰时，它已经在你脚下了，你必须再找一座山峰去征服，否则，你只有下山，走下坡路！</p>
                     <p style="padding-bottom:1em;">How lucky to meet you!</p>
-                    <p>你好，这里是RedCat
- <sup>fatcat</sup> ，对有趣的世界和可能有趣的你充满好奇，热爱折腾~</p>
+                    <p>你好，这里是肥猫 <sup>fatcat</sup> ，对有趣的世界和可能有趣的你充满好奇，热爱折腾~</p>
                     <p>希望能与你在比特之海的繁星之下相见！</p>
                     <div class="chatbox">
                         <div class="line loading"> <span></span>
@@ -160,13 +153,191 @@
         </div>
     </div>
 
+    <div class="gate ch">
+        <div class="container links">
+            <h2 class="chtitle">Tvbox相关<span>推荐</span></h2>
+            <div class="clear col-3">
+                <a href="https://jq.qq.com/?_wv=1027&k=nuiEmPrv" target="_blank">
+                    <div class="item">
+                        <div class="avatar"> <img src="http://p.qlogo.cn/gh/137475118/137475118/100/"> </div>
+                        <div class="inner">
+                            <h5>小白分享交流群</h5>
+                            <p>只有分享了，你的快乐才是真的快乐</p>
+                        </div>
+                    </div>
+                </a>
+            <a href="http://qiqiv.cn/tvbox" target="_blank">
+                    <div class="item">
+                        <div class="avatar"> <img src="https://i.imgtg.com/2022/12/04/DUMqP.png">
+                        </div>
+                        <div class="inner">
+                            <h5>tvbox配置编辑</h5>
+                            <p>配置编辑器，支持加解密</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="http://g9.pub:63/" target="_blank">
+                    <div class="item">
+                        <div class="avatar"> <img src="https://i.imgtg.com/2022/12/04/DUaQl.png">
+                        </div>
+                        <div class="inner">
+                            <h5>网址缩短</h5>
+                            <p>网址缩短，额，也不是很短~</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="http://qiqiv.cn/tvbox/bd.php" target="_blank">
+                    <div class="item">
+                        <div class="avatar"> <img src="https://肥猫.love/qiqi.jpg">
+                        </div>
+                        <div class="inner">
+                            <h5>TvBox本地包</h5>
+                            <p>最新本地包与使用教程</p>
+                        </div>
+                    </div>
+                </a>
+                <!--a href="http://yingyingtv.cn/" target="_blank">
+                    <div class="item">
+                        <div class="avatar"> <img src="http://p.qlogo.cn/gh/493192284/493192284/100/">
+                        </div>
+                        <div class="inner">
+                            <h5>刚刚影视</h5>
+                            <p>强大的影视搜索，你想看的它都有</p>
+                        </div>
+                    </div>
+                </a-->
+                <a href="https://github.com/q215613905/TVBoxOS" target="_blank">
+                    <div class="item">
+                        <div class="avatar"> <img src="https://i.imgtg.com/2022/12/04/DTX2I.png">
+                        </div>
+                        <div class="inner">
+                            <h5>俊于仓库</h5>
+                            <p>Tvbox源码加更，延续官仓风格的版本</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://github.com/takagen99/Box" target="_blank">
+                    <div class="item">
+                        <div class="avatar"> <img src="https://i.imgtg.com/2022/12/04/DT3mF.png">
+                        </div>
+                        <div class="inner">
+                            <h5>takagen99仓库</h5>
+                            <p>基于Tvbox官仓源码，修改美化UI</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://github.com/FongMi/TV" target="_blank">
+                    <div class="item">
+                        <div class="avatar"> <img src="https://i.imgtg.com/2022/12/04/DTIbD.png">
+                        </div>
+                        <div class="inner">
+                            <h5>FongMI仓库</h5>
+                            <p>台湾活雷锋，极简而强大的播放器</p>
+                        </div>
+                    </div>
+                </a>
+                <!--a href="https://t.me/PlutoPlayer" target="_blank">
+                    <div class="item">
+                        <div class="avatar"> <img src="https://avatars.githubusercontent.com/u/109806237?s=120&v=4">
+                        </div>
+                        <div class="inner">
+                            <h5>PlutoPlayer频道</h5>
+                            <p>支持在线更新~功能强大</p>
+                        </div>
+                    </div>
+                </a-->
+                <a href="https://gh.api.99988866.xyz" target="_blank">
+                    <div class="item">
+                        <div class="avatar"> <img src="https://i.imgtg.com/2022/12/04/DUOAb.png"> </div>
+                        <div class="inner">
+                            <h5>GitHub文件加速</h5>
+                            <p>项目基于Cloudflare Workers</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://gitcode.net/qq_32394351/dr_py" target="_blank">
+                    <div class="item">
+                        <div class="avatar"> <img
+                                src="https://gitcode.net/qq_32394351/dr_py/-/raw/1fe0e082b1ceacc4469d7f175a605cc2edf0bab0/static/img/icon.png">
+                        </div>
+                        <div class="inner">
+                            <h5>道长DRPY项目</h5>
+                            <p>可直接用于tvbox和pluto软件数据源使用</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://c.runoob.com" target="_blank">
+                    <div class="item">
+                        <div class="avatar"> <img src="https://static.runoob.com/images/c-runoob-logo.ico"> </div>
+                        <div class="inner">
+                            <h5>菜鸟工具</h5>
+                            <p>常用工具大全,包括js美化base64加解密</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://jihulab.com" target="_blank">
+                    <div class="item">
+                        <div class="avatar"> <img
+                                src="https://jihulab.com/assets/favicon-72a2cad5025aa931d6ea56c3201d1f18e68a8cd39788c7c80d5b2b82aa5143ef.png">
+                        </div>
+                        <div class="inner">
+                            <h5>极狐代码托管</h5>
+                            <p>稳定速度快，个人私用接口托管足够了~</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://api.xn--9kq078cdn3a.cc/" target="_blank">
+                    <div class="item">
+                        <div class="avatar"> <img src="https://json.xn--9kq078cdn3a.cc/uploads/images/20220808221314eca271444.png"></div>
+                        <div class="inner">
+                            <h5>星辰云解析</h5>
+                            <p>肥猫接口解析赞助，极速稳定</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://bar.ssstab.com/" target="_blank">
+                    <div class="item">
+                        <div class="avatar"> <img src="https://bar.ssstab.com/favicon-32x32.png"> </div>
+                        <div class="inner">
+                            <h5>sssbar搜索</h5>
+                            <p>工具箱搜索网站，非常的方便且强大</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://adzhp.net/?ref=www.widiz.com" target="_blank">
+                    <div class="item">
+                        <div class="avatar"> <img src="https://adzhp.net/wp-content/uploads/2019/02/A.png"> </div>
+                        <div class="inner">
+                            <h5>爱达杂货铺</h5>
+                            <p>收集那些有用的东西</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="http://i.xn--z7x900a.love:63/" target="_blank">
+                    <div class="item">
+                        <div class="avatar"> <img src="http://xn--z7x900a.love/kanqiao-1-12.png"></div>
+                        <div class="inner">
+                            <h5>肥猫影视</h5>
+                            <p>无广告无弹窗，蓝光免费在线观看，看你想看的</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="http://xn--4bra.live/ad/sangzitang.html" target="_blank">
+                    <div class="item">
+                        <div class="avatar"> <img src="http://xn--z7x900a.love/nannv.png"></div>
+                        <div class="inner">
+                            <h5>壮阳|补肾</h5>
+                            <p>纯中药！可试用！无效退！送两性技巧教程</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
             <!--底部波浪-->
             <div id="hans-bolang"></div><script src="https://api.vvhan.com/api/bolang"></script>
         </div>
         <div class="footer ch">
             <div class="container">
-                <h3>星光满载 初心不改 © 2023 RedCat
-</h3>
+                <h3>星光满载 初心不改 © 2023 肥猫</h3>
             </div>
         </div>
     </div>
@@ -185,8 +356,7 @@
             let clipboard = new ClipboardJS(id);
             clipboard.on('success', function (e) {
                 console.log(e);
-                alert('RedCat
-提醒：复制成功，请前往tvbox接口粘贴')
+                alert('肥猫提醒：复制成功，请前往tvbox接口粘贴')
                 clipboard.destroy();//解决多次弹窗问题
             });
             clipboard.on('error', function (e) {
