@@ -1,107 +1,213 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pong Terminal ◆ 第七号样本</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pong Terminal ◆ 第七号样本</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="hud-bar">
-            <span class="left">TERMINAL://s-ssss · 样本Ⅶ · 能源稳定</span>
-            <span class="right">SYS.OP // ONLINE</span>
-        </div>
-        <h1>Pong Terminal</h1>
-        <p>天亮前，烤箱和服务器都在默默工作。</p>
-        <nav>
-            <a href="index.html" class="active">▷ 首页</a>
-            <a href="plog.html">▷ 相片墙</a>
-            <a href="workshop.html">▷ 代码工坊</a>
-            <a href="guestbook.html">▷ 留言板</a>
-        </nav>
-    </header>
 
-    <!-- 音乐协议 -->
-    <div id="musicBar">
-        <span class="music-icon">♪</span>
-        <span id="musicName">// 音频协议待加载</span>
-        <audio id="bgMusic" loop preload="metadata">
-            <source src="music/your-song.mp3" type="audio/mpeg">
-        </audio>
-        <button id="playBtn">▶ 启动</button>
+<!-- 背景网格 -->
+<div class="bg-grid"></div>
+
+<!-- 顶部状态栏 -->
+<header class="topbar">
+    <div class="topbar-left">
+        <span class="dot"></span>
+        <span>TERMINAL://s-ssss</span>
+        <span class="sep">|</span>
+        <span>样本Ⅶ</span>
+        <span class="sep">|</span>
+        <span class="status-ok">能源稳定</span>
     </div>
+    <div class="topbar-right">
+        <span id="clock">--:--:--</span>
+        <span class="sep">|</span>
+        <span>SYS.OP // ONLINE</span>
+    </div>
+</header>
 
-    <main>
-        <section class="intro">
-            <div class="intro-card">
-                <h2>// 关于我</h2>
-                <p>开过一家小店，卖自己调的饮品。配方自己调，比例自己试，糖度自己改。</p>
-                <p>现在偶尔在厨房捣鼓新东西，烤箱、奶泡机、温度计，比服务器还多。</p>
+<!-- 主区域：左导航 + 中HUD + 右矩阵 -->
+<main class="layout">
+
+    <!-- 左侧导航 -->
+    <aside class="sidebar">
+        <div class="side-title">// NAV</div>
+        <a href="index.html" class="side-btn active">
+            <span class="side-icon">◆</span>
+            <span>首页</span>
+        </a>
+        <a href="plog.html" class="side-btn">
+            <span class="side-icon">📷</span>
+            <span>相片墙</span>
+        </a>
+        <a href="workshop.html" class="side-btn">
+            <span class="side-icon">⚙</span>
+            <span>代码工坊</span>
+        </a>
+        <a href="guestbook.html" class="side-btn">
+            <span class="side-icon">✍</span>
+            <span>留言板</span>
+        </a>
+
+        <!-- 音乐协议 -->
+        <div class="music-box">
+            <div class="music-label">// 音频协议</div>
+            <div class="music-row">
+                <span id="musicIcon">♪</span>
+                <span id="musicName">待机</span>
             </div>
-            <div class="intro-card">
-                <h2>// 休息时</h2>
-                <p>窝在沙发上追番：异世界、美食纪录片、悬疑推理、特摄。</p>
-                <p>最近在看的一部，片头曲已经会哼了。</p>
+            <audio id="bgMusic" loop preload="metadata">
+                <source src="music/your-song.mp3" type="audio/mpeg">
+            </audio>
+            <button id="playBtn" class="yellow-btn">▶ 启动</button>
+        </div>
+    </aside>
+
+    <!-- 中间 HUD 圆环 -->
+    <section class="hud-center">
+        <div class="hud">
+            <!-- 外圈虚线 -->
+            <svg class="hud-svg" viewBox="0 0 400 400">
+                <defs>
+                    <linearGradient id="g1" x1="0" x2="1">
+                        <stop offset="0%" stop-color="#f6d64a"/>
+                        <stop offset="100%" stop-color="rgba(246,214,74,0)"/>
+                    </linearGradient>
+                </defs>
+                <circle cx="200" cy="200" r="188" stroke="rgba(255,255,255,0.08)" stroke-width="1" fill="none"/>
+                <circle cx="200" cy="200" r="170" stroke="rgba(255,255,255,0.14)" stroke-width="1" fill="none" stroke-dasharray="4 6"/>
+                <!-- 进度弧 -->
+                <path d="M200 30 A170 170 0 0 1 354 126" stroke="url(#g1)" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <path d="M200 30 A170 170 0 0 1 354 126" stroke="#f6d64a" stroke-width="1" fill="none" stroke-dasharray="2 8" opacity="0.6"/>
+            </svg>
+
+            <!-- 内圈静态 -->
+            <svg class="hud-svg inner" viewBox="0 0 400 400">
+                <circle cx="200" cy="200" r="140" stroke="rgba(246,214,74,0.18)" stroke-width="1" fill="none"/>
+                <circle cx="200" cy="200" r="100" stroke="rgba(255,255,255,0.06)" stroke-width="1" fill="none"/>
+                <!-- 刻度线 -->
+                <g stroke="rgba(255,255,255,0.1)" stroke-width="1">
+                    <line x1="200" y1="60" x2="200" y2="72"/>
+                    <line x1="200" y1="328" x2="200" y2="340"/>
+                    <line x1="60" y1="200" x2="72" y2="200"/>
+                    <line x1="328" y1="200" x2="340" y2="200"/>
+                </g>
+            </svg>
+
+            <!-- 中心文字 -->
+            <div class="hud-text">
+                <div class="hud-sub">PROTOCOL // VII</div>
+                <div class="hud-main">第七号样本</div>
+                <div class="hud-sub">EXP Lv.07</div>
+                <div class="hud-bar-wrap">
+                    <div class="hud-bar"><div class="hud-bar-fill" style="width:75%"></div></div>
+                    <span class="hud-bar-text">7385/9800</span>
+                </div>
             </div>
-            <div class="intro-card">
-                <h2>// 多多</h2>
-                <p>家里有一只柯基，叫多多。照片比我还多。</p>
-                <p><a href="plog.html">→ 查看样本影像</a></p>
-            </div>
-        </section>
 
-        <section class="quick-links">
-            <a href="plog.html" class="quick-card plog">
-                <span class="quick-icon">📷</span>
-                <span class="quick-text">相片墙</span>
+            <!-- 四个方向小标签 -->
+            <div class="hud-tag top">N · 厨房</div>
+            <div class="hud-tag right">E · 代码</div>
+            <div class="hud-tag bottom">S · 多多</div>
+            <div class="hud-tag left">W · 饮品</div>
+        </div>
+
+        <!-- 简介文字 -->
+        <div class="hud-intro">
+            <p>天亮前，烤箱和服务器都在默默工作。</p>
+            <p class="muted">能交给机器的，绝不动手指。能跑在云上的，绝不占本地。</p>
+        </div>
+    </section>
+
+    <!-- 右侧模块矩阵 -->
+    <aside class="modules">
+        <div class="side-title">// MODULES</div>
+        <div class="mod-grid">
+            <a href="plog.html" class="mod-card">
+                <span class="mod-icon">📷</span>
+                <span class="mod-name">相片墙</span>
+                <span class="mod-desc">影像数据库</span>
             </a>
-            <a href="workshop.html" class="quick-card code">
-                <span class="quick-icon">⚙</span>
-                <span class="quick-text">代码工坊</span>
+            <a href="workshop.html" class="mod-card">
+                <span class="mod-icon">⚙</span>
+                <span class="mod-name">代码工坊</span>
+                <span class="mod-desc">自动化协议</span>
             </a>
-            <a href="guestbook.html" class="quick-card msg">
-                <span class="quick-icon">✍</span>
-                <span class="quick-text">留言板</span>
+            <a href="guestbook.html" class="mod-card">
+                <span class="mod-icon">✍</span>
+                <span class="mod-name">留言板</span>
+                <span class="mod-desc">外部通讯</span>
             </a>
-        </section>
+            <a href="https://github.com/s-ssss" target="_blank" class="mod-card">
+                <span class="mod-icon">🐙</span>
+                <span class="mod-name">GitHub</span>
+                <span class="mod-desc">源码终端</span>
+            </a>
+            <a href="plog.html" class="mod-card alt">
+                <span class="mod-icon">🐾</span>
+                <span class="mod-name">多多日志</span>
+                <span class="mod-desc">巡视单元</span>
+            </a>
+            <a href="workshop.html" class="mod-card alt">
+                <span class="mod-icon">🍲</span>
+                <span class="mod-name">慢炖中</span>
+                <span class="mod-desc">低温萃取</span>
+            </a>
+        </div>
 
-        <section id="copySection">
-            <h2>// 可复制数据</h2>
-            <div class="copy-block" data-copy="海盐芝士茉莉 — 茶底冷萃6小时，奶盖撒海盐">海盐芝士茉莉</div>
-            <div class="copy-block" data-copy="桂花酒酿拿铁 — 冬天限定，酒酿自己酿">桂花酒酿拿铁</div>
-            <div class="copy-block" data-copy="薄荷青柠气泡 — 夏天一口气喝两杯">薄荷青柠气泡</div>
-            <div class="copy-block" data-copy="代码是写给人看的，顺便能跑就行。饭是做给人吃的，顺便拍个照。">签名档</div>
-        </section>
-    </main>
+        <!-- 可复制数据 -->
+        <div class="side-title" style="margin-top:24px;">// 可复制数据</div>
+        <div class="copy-list">
+            <div class="copy-block" data-copy="海盐芝士茉莉 — 茶底冷萃6小时，奶盖撒海盐">🧊 海盐芝士茉莉</div>
+            <div class="copy-block" data-copy="桂花酒酿拿铁 — 冬天限定，酒酿自己酿">🌼 桂花酒酿拿铁</div>
+            <div class="copy-block" data-copy="薄荷青柠气泡 — 夏天一口气喝两杯">🌿 薄荷青柠气泡</div>
+            <div class="copy-block" data-copy="代码是写给人看的，顺便能跑就行。饭是做给人吃的，顺便拍个照。">💻 签名档</div>
+        </div>
+    </aside>
 
-    <footer>
-        <p>// END OF LOG · 第七号样本终端 v0.7 · 慢慢来，比较快</p>
-        <p class="footer-links">
-            <a href="https://github.com/s-ssss">🐙 GitHub</a>
-        </p>
-    </footer>
+</main>
 
-    <script>
-        const audio = document.getElementById('bgMusic');
-        const playBtn = document.getElementById('playBtn');
-        const musicName = document.getElementById('musicName');
-        playBtn.addEventListener('click', () => {
-            if (audio.paused) { audio.play(); playBtn.textContent = '⏸ 暂停'; musicName.textContent = '// ♪ 音频协议运行中'; }
-            else { audio.pause(); playBtn.textContent = '▶ 启动'; musicName.textContent = '// 音频协议已暂停'; }
+<!-- 底部协议条 -->
+<footer class="bottombar">
+    <span>// END OF LOG · 第七号样本终端 v0.7</span>
+    <span class="sep">|</span>
+    <span>慢慢来，比较快</span>
+    <span class="sep">|</span>
+    <span class="muted">© 2026 Pong</span>
+</footer>
+
+<script>
+    // 时钟
+    function tick(){
+        const d = new Date();
+        const t = [d.getHours(),d.getMinutes(),d.getSeconds()].map(n=>String(n).padStart(2,'0')).join(':');
+        document.getElementById('clock').textContent = t;
+    }
+    tick(); setInterval(tick,1000);
+
+    // 音乐
+    const audio = document.getElementById('bgMusic');
+    const playBtn = document.getElementById('playBtn');
+    const musicName = document.getElementById('musicName');
+    playBtn.addEventListener('click', () => {
+        if (audio.paused) { audio.play(); playBtn.textContent = '⏸ 暂停'; musicName.textContent = '运行中'; }
+        else { audio.pause(); playBtn.textContent = '▶ 启动'; musicName.textContent = '待机'; }
+    });
+
+    // 复制
+    document.querySelectorAll('.copy-block').forEach(b => {
+        b.addEventListener('click', async () => {
+            try {
+                await navigator.clipboard.writeText(b.dataset.copy);
+                const o = b.textContent; b.textContent = '✓ 已复制';
+                setTimeout(() => b.textContent = o, 1200);
+            } catch {}
         });
+    });
+</script>
 
-        document.querySelectorAll('.copy-block').forEach(block => {
-            block.addEventListener('click', async () => {
-                try {
-                    await navigator.clipboard.writeText(block.dataset.copy);
-                    const orig = block.textContent;
-                    block.textContent = '✓ 已复制';
-                    setTimeout(() => block.textContent = orig, 1200);
-                } catch { alert('复制失败'); }
-            });
-        });
-    </script>
 </body>
 </html>
