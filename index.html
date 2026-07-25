@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pong Terminal ◆ 第七号样本</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="hud-bar">
+            <span class="left">TERMINAL://s-ssss · 样本Ⅶ · 能源稳定</span>
+            <span class="right">SYS.OP // ONLINE</span>
+        </div>
+        <h1>Pong Terminal</h1>
+        <p>天亮前，烤箱和服务器都在默默工作。</p>
+        <nav>
+            <a href="index.html" class="active">▷ 首页</a>
+            <a href="plog.html">▷ 相片墙</a>
+            <a href="workshop.html">▷ 代码工坊</a>
+            <a href="guestbook.html">▷ 留言板</a>
+        </nav>
+    </header>
+
+    <!-- 音乐协议 -->
+    <div id="musicBar">
+        <span class="music-icon">♪</span>
+        <span id="musicName">// 音频协议待加载</span>
+        <audio id="bgMusic" loop preload="metadata">
+            <source src="music/your-song.mp3" type="audio/mpeg">
+        </audio>
+        <button id="playBtn">▶ 启动</button>
+    </div>
+
+    <main>
+        <section class="intro">
+            <div class="intro-card">
+                <h2>// 关于我</h2>
+                <p>开过一家小店，卖自己调的饮品。配方自己调，比例自己试，糖度自己改。</p>
+                <p>现在偶尔在厨房捣鼓新东西，烤箱、奶泡机、温度计，比服务器还多。</p>
+            </div>
+            <div class="intro-card">
+                <h2>// 休息时</h2>
+                <p>窝在沙发上追番：异世界、美食纪录片、悬疑推理、特摄。</p>
+                <p>最近在看的一部，片头曲已经会哼了。</p>
+            </div>
+            <div class="intro-card">
+                <h2>// 多多</h2>
+                <p>家里有一只柯基，叫多多。照片比我还多。</p>
+                <p><a href="plog.html">→ 查看样本影像</a></p>
+            </div>
+        </section>
+
+        <section class="quick-links">
+            <a href="plog.html" class="quick-card plog">
+                <span class="quick-icon">📷</span>
+                <span class="quick-text">相片墙</span>
+            </a>
+            <a href="workshop.html" class="quick-card code">
+                <span class="quick-icon">⚙</span>
+                <span class="quick-text">代码工坊</span>
+            </a>
+            <a href="guestbook.html" class="quick-card msg">
+                <span class="quick-icon">✍</span>
+                <span class="quick-text">留言板</span>
+            </a>
+        </section>
+
+        <section id="copySection">
+            <h2>// 可复制数据</h2>
+            <div class="copy-block" data-copy="海盐芝士茉莉 — 茶底冷萃6小时，奶盖撒海盐">海盐芝士茉莉</div>
+            <div class="copy-block" data-copy="桂花酒酿拿铁 — 冬天限定，酒酿自己酿">桂花酒酿拿铁</div>
+            <div class="copy-block" data-copy="薄荷青柠气泡 — 夏天一口气喝两杯">薄荷青柠气泡</div>
+            <div class="copy-block" data-copy="代码是写给人看的，顺便能跑就行。饭是做给人吃的，顺便拍个照。">签名档</div>
+        </section>
+    </main>
+
+    <footer>
+        <p>// END OF LOG · 第七号样本终端 v0.7 · 慢慢来，比较快</p>
+        <p class="footer-links">
+            <a href="https://github.com/s-ssss">🐙 GitHub</a>
+        </p>
+    </footer>
+
+    <script>
+        const audio = document.getElementById('bgMusic');
+        const playBtn = document.getElementById('playBtn');
+        const musicName = document.getElementById('musicName');
+        playBtn.addEventListener('click', () => {
+            if (audio.paused) { audio.play(); playBtn.textContent = '⏸ 暂停'; musicName.textContent = '// ♪ 音频协议运行中'; }
+            else { audio.pause(); playBtn.textContent = '▶ 启动'; musicName.textContent = '// 音频协议已暂停'; }
+        });
+
+        document.querySelectorAll('.copy-block').forEach(block => {
+            block.addEventListener('click', async () => {
+                try {
+                    await navigator.clipboard.writeText(block.dataset.copy);
+                    const orig = block.textContent;
+                    block.textContent = '✓ 已复制';
+                    setTimeout(() => block.textContent = orig, 1200);
+                } catch { alert('复制失败'); }
+            });
+        });
+    </script>
+</body>
+</html>
