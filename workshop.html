@@ -8,22 +8,34 @@
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="hud-bar">
-            <span class="left">MODULE://workshop · 自动化协议</span>
-            <span class="right">UPTIME // 99.7%</span>
-        </div>
-        <h1>代码工坊</h1>
-        <p>// 能交给机器的，绝不动手指。</p>
-        <nav>
-            <a href="index.html">▷ 首页</a>
-            <a href="plog.html">▷ 相片墙</a>
-            <a href="workshop.html" class="active">▷ 代码工坊</a>
-            <a href="guestbook.html">▷ 留言板</a>
-        </nav>
-    </header>
 
-    <main>
+<div class="bg-grid"></div>
+
+<header class="topbar">
+    <div class="topbar-left">
+        <span class="dot"></span>
+        <span>MODULE://workshop</span>
+        <span class="sep">|</span>
+        <span>自动化协议</span>
+    </div>
+    <div class="topbar-right">
+        <span>UPTIME // 99.7%</span>
+    </div>
+</header>
+
+<main class="page-layout">
+    <aside class="page-sidebar">
+        <div class="side-title">// NAV</div>
+        <a href="index.html" class="side-btn"><span class="side-icon">◆</span><span>首页</span></a>
+        <a href="plog.html" class="side-btn"><span class="side-icon">📷</span><span>相片墙</span></a>
+        <a href="workshop.html" class="side-btn active"><span class="side-icon">⚙</span><span>代码工坊</span></a>
+        <a href="guestbook.html" class="side-btn"><span class="side-icon">✍</span><span>留言板</span></a>
+    </aside>
+
+    <section class="page-content">
+        <h1 class="page-title">⚙ 代码工坊</h1>
+        <p class="page-subtitle">// 能交给机器的，绝不动手指。</p>
+
         <section class="projects">
             <div class="proj-card">
                 <h2>▷ Endfield-Sign</h2>
@@ -64,10 +76,14 @@
             <h2>// 当前研究</h2>
             <p>RUST · 慢炖 · 爬虫 · 第七号样本 · 冷萃</p>
         </section>
-    </main>
+    </section>
+</main>
 
-    <footer>
-        <p>// END OF LOG · 第七号样本终端 v0.7</p>
-    </footer>
+<footer class="bottombar">
+    <span>// END OF LOG · 第七号样本终端 v0.7</span>
+    <span class="sep">|</span>
+    <span>慢慢来，比较快</span>
+</footer>
+
 </body>
 </html>
