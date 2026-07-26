@@ -17,7 +17,7 @@ const photos = [
   { num:"07.", title:"菜市场早市", desc:"挑食材比写代码还认真", cat:"kitchen", src: imgUrl("images/p07.jpg"), tag:"🛒 日常采购" },
   { num:"08.", title:"桂花酒酿拿铁", desc:"冬天限定，酒酿自己酿", cat:"drink", src: imgUrl("images/p08.jpg"), tag:"🥤 饮品手记" },
   { num:"09.", title:"武大樱花", desc:"散步时随手拍", cat:"walk", src: imgUrl("images/p09.jpg"), tag:"🌿 随拍" },
-  { num:"10.", title:"多多晒太阳", desc:"阳台是它的领地", cat:"corgi", src: imgUrl("images/p10.jpg"), tag:"🐾 柯基日常" },
+  { num:"10.", title:"多多兜风", desc:"车是它的领地", cat:"corgi", src: imgUrl("images/p10.jpg"), tag:"🐾 柯基日常" },
   { num:"11.", title:"冷萃实验第7次", desc:"比例终于对了", cat:"drink", src: imgUrl("images/p11.jpg"), tag:"🥤 饮品手记" },
   { num:"12.", title:"海边灯塔", desc:"适合写代码和发呆", cat:"walk", src: imgUrl("images/p12.jpg"), tag:"🌧 随拍" },
   { num:"13.", title:"终末地", desc:"Rust + GitHub Actions 自动跑", cat:"kitchen", src: imgUrl("images/p13.jpg"), tag:"⚙ 代码工坊" },
