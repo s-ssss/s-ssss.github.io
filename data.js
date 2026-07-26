@@ -20,5 +20,5 @@ const photos = [
   { num:"10.", title:"多多晒太阳", desc:"阳台是它的领地", cat:"corgi", src: imgUrl("images/p10.jpg"), tag:"🐾 柯基日常" },
   { num:"11.", title:"冷萃实验第7次", desc:"比例终于对了", cat:"drink", src: imgUrl("images/p11.jpg"), tag:"🥤 饮品手记" },
   { num:"12.", title:"海边灯塔", desc:"适合写代码和发呆", cat:"walk", src: imgUrl("images/p12.jpg"), tag:"🌧 随拍" },
-  { num:"13.", title:"终末地签到（诀）", desc:"Rust + GitHub Actions 自动跑", cat:"kitchen", src: imgUrl("images/p13.jpg"), tag:"⚙ 代码工坊" },
+  { num:"13.", title:"终末地", desc:"Rust + GitHub Actions 自动跑", cat:"kitchen", src: imgUrl("images/p13.jpg"), tag:"⚙ 代码工坊" },
 ];
