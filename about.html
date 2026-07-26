@@ -5,17 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>关于我 · RedCat</title>
 
-  <!-- ========== CDN 开关（和 data.js 保持一致） ========== -->
+  <!-- ========== CDN 开关（gcore 节点） ========== -->
   <script>
     const USE_CDN = true;
-    const CDN_BASE = USE_CDN
-      ? "https://cdn.jsdelivr.net/gh/s-ssss/s-ssss.github.io@main"
-      : "";
+    const CDN_BASE = "https://gcore.jsdelivr.net/gh/s-ssss/s-ssss.github.io@main";
   </script>
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="images/favicon.png" type="image/png">
+  <!-- CSS（./ 保证根目录不 404） -->
+  <link rel="stylesheet" href="./style.css">
+  <link rel="icon" href="./images/favicon.png" type="image/png">
 </head>
 
 <body>
@@ -28,13 +26,13 @@
 <!-- ===== Header ===== -->
 <header class="site-header" id="siteHeader">
   <div class="header-inner">
-    <a href="index.html" class="logo">Red<span>Cat</span></a>
+    <a href="./index.html" class="logo">Red<span>Cat</span></a>
     <nav class="main-nav" id="mainNav">
-      <a href="index.html">Home</a>
-      <a href="portfolio.html">Portfolio</a>
-      <a href="blog.html">Blog</a>
-      <a href="about.html" class="active">About</a>
-      <a href="contact.html">Contact</a>
+      <a href="./index.html">Home</a>
+      <a href="./portfolio.html">Portfolio</a>
+      <a href="./blog.html">Blog</a>
+      <a href="./about.html" class="active">About</a>
+      <a href="./contact.html">Contact</a>
     </nav>
     <button class="menu-toggle" id="menuToggle" aria-label="菜单">
       <span></span><span></span><span></span>
@@ -52,7 +50,7 @@
 <section class="about-page">
   <div class="about-grid">
 
-    <!-- 左侧：照片（自动走 CDN） -->
+    <!-- 左侧：头像（自动走 gcore CDN） -->
     <div class="about-photo">
       <img id="aboutAvatar" alt="RedCat Avatar">
     </div>
@@ -77,7 +75,7 @@
         <div class="skill"><span>Rust</span><div class="bar"><div class="fill" style="width:65%"></div></div></div>
       </div>
 
-      <a href="contact.html" class="btn-outline">和我聊聊</a>
+      <a href="./contact.html" class="btn-outline">和我聊聊</a>
     </div>
 
   </div>
@@ -94,23 +92,22 @@
 
 <!-- ===== JS ===== -->
 <script>
-  /* --- 头像自动拼 CDN --- */
-  document.getElementById('aboutAvatar').src =
-    (CDN_BASE ? CDN_BASE + '/' : '') + 'images/about.jpg';
+  /* 头像路径自动拼 CDN */
+  document.getElementById('aboutAvatar').src = CDN_BASE + '/images/about.jpg';
 
-  /* --- Preloader --- */
+  /* Preloader */
   window.addEventListener('load', () => {
     setTimeout(() => {
       document.getElementById('preloader').classList.add('hide');
     }, 600);
   });
 
-  /* --- 移动端菜单 --- */
+  /* 汉堡菜单 */
   const toggle = document.getElementById('menuToggle');
   const nav = document.getElementById('mainNav');
   toggle.addEventListener('click', () => nav.classList.toggle('open'));
 
-  /* --- Header 滚动 --- */
+  /* Header 滚动 */
   window.addEventListener('scroll', () => {
     document.getElementById('siteHeader')
       .classList.toggle('scrolled', window.scrollY > 60);
