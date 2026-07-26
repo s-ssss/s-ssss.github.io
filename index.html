@@ -1,136 +1,132 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pong Terminal ◆ 第七号样本</title>
-<link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>s-ssss 样本终端 · 简版站</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<div class="bg-grid"></div>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">s-ssss / 样本终端</div>
 
-<header class="topbar">
-    <div class="topbar-left">
-        <span class="dot"></span>
-        <span>TERMINAL://s-ssss</span>
-        <span class="sep">|</span>
-        <span>样本Ⅶ</span>
-        <span class="sep">|</span>
-        <span class="status-ok">能源稳定</span>
+      <nav>
+        <a href="index.html" class="active">首页</a>
+        <a href="plog.html">相片墙</a>
+        <a href="workshop.html">代码工坊</a>
+        <a href="guestbook.html">留言板</a>
+      </nav>
+
+      <div class="search-box">
+        <input type="text" placeholder="搜索..." />
+      </div>
     </div>
-    <div class="topbar-right">
-        <span id="clock">--:--:--</span>
-        <span class="sep">|</span>
-        <span>SYS.OP // ONLINE</span>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <p class="tag">// SAMPLE TERMINAL</p>
+      <h1>第七号样本</h1>
+      <p class="desc">
+        这里放一些照片、代码、留言和可复制的小数据。
+        风格换简单一点，先保证能看、能用、不乱。
+      </p>
+      <div class="hero-links">
+        <a class="btn" href="guestbook.html">去留言</a>
+        <a class="btn ghost" href="plog.html">看相片墙</a>
+      </div>
     </div>
-</header>
+  </section>
 
-<main class="layout">
+  <main class="content">
 
-    <aside class="sidebar">
-        <div class="side-title">// NAV</div>
-        <a href="index.html" class="side-btn active">
-            <span class="side-icon">◆</span>
-            <span>首页</span>
-        </a>
-        <a href="plog.html" class="side-btn">
-            <span class="side-icon">📷</span>
-            <span>相片墙</span>
-        </a>
-        <a href="workshop.html" class="side-btn">
-            <span class="side-icon">⚙</span>
-            <span>代码工坊</span>
-        </a>
-        <a href="guestbook.html" class="side-btn">
-            <span class="side-icon">✍</span>
-            <span>留言板</span>
-        </a>
+    <section class="cards">
 
-        <div class="music-box">
-            <div class="music-label">// 音频协议</div>
-            <div class="music-row">
-                <span id="musicIcon">♪</span>
-                <span id="musicName">待机</span>
-            </div>
-            <audio id="bgMusic" loop preload="metadata">
-                <source src="music/your-song.mp3" type="audio/mpeg">
-            </audio>
-            <button id="playBtn" class="yellow-btn">▶ 启动</button>
+      <article class="card">
+        <div class="card-img img-1"></div>
+        <div class="card-body">
+          <h3>相片墙</h3>
+          <p>放照片、截图、日常记录的地方。</p>
+          <a href="plog.html">打开 →</a>
         </div>
-    </aside>
+      </article>
 
-    <section class="hud-center">
-        <div class="hud">
-            <svg class="hud-svg" viewBox="0 0 400 400">
-                <defs>
-                    <linearGradient id="g1" x1="0" x2="1">
-                        <stop offset="0%" stop-color="#f6d64a"/>
-                        <stop offset="100%" stop-color="rgba(246,214,74,0)"/>
-                    </linearGradient>
-                </defs>
-                <circle cx="200" cy="200" r="188" stroke="rgba(255,255,255,0.08)" stroke-width="1" fill="none"/>
-                <circle cx="200" cy="200" r="170" stroke="rgba(255,255,255,0.14)" stroke-width="1" fill="none" stroke-dasharray="4 6"/>
-                <path d="M200 30 A170 170 0 0 1 370 162" stroke="url(#g1)" stroke-width="3" fill="none" stroke-linecap="round"/>
-                <path d="M200 30 A170 170 0 0 1 350 130" stroke="#f6d64a" stroke-width="1" fill="none" stroke-dasharray="2 8" opacity="0.6"/>
-            </svg>
-
-            <svg class="hud-svg inner" viewBox="0 0 400 400">
-                <circle cx="200" cy="200" r="136" stroke="rgba(246,214,74,0.18)" stroke-width="1" fill="none"/>
-                <circle cx="200" cy="200" r="94" stroke="rgba(255,255,255,0.06)" stroke-width="1" fill="none"/>
-                <g stroke="rgba(255,255,255,0.09)" stroke-width="1">
-                    <line x1="200" y1="66" x2="200" y2="76"/>
-                    <line x1="200" y1="324" x2="200" y2="334"/>
-                    <line x1="66" y1="200" x2="76" y2="200"/>
-                    <line x1="324" y1="200" x2="334" y2="200"/>
-                </g>
-            </svg>
-
-            <div class="hud-text">
-                <div class="hud-sub">PROTOCOL // VII</div>
-                <div class="hud-main">第七号样本</div>
-                <div class="hud-sub">EXP Lv.07</div>
-                <div class="hud-bar-wrap">
-                    <div class="hud-bar"><div class="hud-bar-fill" style="width:75%"></div></div>
-                    <span class="hud-bar-text">7385/9800</span>
-                </div>
-            </div>
-
-            <div class="hud-tag top">N · 厨房</div>
-            <div class="hud-tag right">E · 代码</div>
-            <div class="hud-tag bottom">S · 多多</div>
-            <div class="hud-tag left">W · 饮品</div>
+      <article class="card">
+        <div class="card-img img-2"></div>
+        <div class="card-body">
+          <h3>代码工坊</h3>
+          <p>一些自动脚本、小工具和实验项目。</p>
+          <a href="workshop.html">打开 →</a>
         </div>
+      </article>
 
-        <div class="hud-intro">
-            <p>天亮前，烤箱和服务器都在默默工作。</p>
-            <p class="muted">能交给机器的，绝不动手指。能跑在云上的，绝不占本地。</p>
+      <article class="card">
+        <div class="card-img img-3"></div>
+        <div class="card-body">
+          <h3>留言板</h3>
+          <p>外部通讯信道，随便写点什么。</p>
+          <a href="guestbook.html">打开 →</a>
         </div>
+      </article>
+
     </section>
 
-    <aside class="modules">
-        <div class="side-title">// MODULES</div>
-        <div class="mod-grid">
-            <a href="plog.html" class="mod-card">
-                <span class="mod-icon">📷</span>
-                <span class="mod-name">相片墙</span>
-                <span class="mod-desc">影像数据库</span>
-            </a>
-            <a href="workshop.html" class="mod-card">
-                <span class="mod-icon">⚙</span>
-                <span class="mod-name">代码工坊</span>
-                <span class="mod-desc">自动化协议</span>
-            </a>
-            <a href="guestbook.html" class="mod-card">
-                <span class="mod-icon">✍</span>
-                <span class="mod-name">留言板</span>
-                <span class="mod-desc">外部通讯</span>
-            </a>
-            <a href="https://github.com/s-ssss" target="_blank" class="mod-card">
-                <span class="mod-icon">🐙</span>
-                <span class="mod-name">GitHub</span>
-                <span class="mod-desc">源码终端</span>
-            </a>
-            <a href="plog.html" class="mod-card alt">
-                <span class="mod-icon">🐾</
+    <section class="copy-section">
+      <h2>可复制数据</h2>
+      <p class="sub">点一下就能复制。</p>
+
+      <div class="copy-list">
+        <div class="copy-item" data-copy="海盐芝士茉莉">🧊 海盐芝士茉莉</div>
+        <div class="copy-item" data-copy="桂花酒酿拿铁">🍶 桂花酒酿拿铁</div>
+        <div class="copy-item" data-copy="薄荷青柠气泡">🍃 薄荷青柠气泡</div>
+        <div class="copy-item" data-copy="签名档：第七号样本终端">📄 签名档</div>
+      </div>
+
+      <p id="copy-tip" class="copy-tip">等待复制...</p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>// END OF LOG · s-ssss.github.io · 2026</p>
+  </footer>
+
+  <script>
+    const items = document.querySelectorAll(".copy-item");
+    const tip = document.getElementById("copy-tip");
+
+    items.forEach(item => {
+      item.addEventListener("click", () => {
+        const text = item.getAttribute("data-copy");
+
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(text).then(() => {
+            tip.textContent = "已复制：" + text;
+          }).catch(() => fallbackCopy(text));
+        } else {
+          fallbackCopy(text);
+        }
+      });
+    });
+
+    function fallbackCopy(text) {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.position = "fixed";
+      ta.style.left = "-9999px";
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand("copy");
+        tip.textContent = "已复制：" + text;
+      } catch {
+        tip.textContent = "复制失败，请手动选择文本";
+      }
+      document.body.removeChild(ta);
+    }
+  </script>
+
+</body>
+</html>
