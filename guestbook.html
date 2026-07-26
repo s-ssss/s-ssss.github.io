@@ -8,22 +8,34 @@
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="hud-bar">
-            <span class="left">MODULE://guestbook · 外部通讯信道</span>
-            <span class="right">CHANNEL // OPEN</span>
-        </div>
-        <h1>留言板</h1>
-        <p>// 随便写点什么，终端会转发到我的微信。</p>
-        <nav>
-            <a href="index.html">▷ 首页</a>
-            <a href="plog.html">▷ 相片墙</a>
-            <a href="workshop.html">▷ 代码工坊</a>
-            <a href="guestbook.html" class="active">▷ 留言板</a>
-        </nav>
-    </header>
 
-    <main>
+<div class="bg-grid"></div>
+
+<header class="topbar">
+    <div class="topbar-left">
+        <span class="dot"></span>
+        <span>MODULE://guestbook</span>
+        <span class="sep">|</span>
+        <span>外部通讯信道</span>
+    </div>
+    <div class="topbar-right">
+        <span>CHANNEL // OPEN</span>
+    </div>
+</header>
+
+<main class="page-layout">
+    <aside class="page-sidebar">
+        <div class="side-title">// NAV</div>
+        <a href="index.html" class="side-btn"><span class="side-icon">◆</span><span>首页</span></a>
+        <a href="plog.html" class="side-btn"><span class="side-icon">📷</span><span>相片墙</span></a>
+        <a href="workshop.html" class="side-btn"><span class="side-icon">⚙</span><span>代码工坊</span></a>
+        <a href="guestbook.html" class="side-btn active"><span class="side-icon">✍</span><span>留言板</span></a>
+    </aside>
+
+    <section class="page-content">
+        <h1 class="page-title">✍ 留言板</h1>
+        <p class="page-subtitle">// 随便写点什么，终端会转发到我的微信。</p>
+
         <form id="guestForm">
             <label for="name">// 称呼</label>
             <input type="text" id="name" placeholder="输入你的代号" required>
@@ -34,40 +46,44 @@
             <label for="contact">// 回执地址（选填）</label>
             <input type="text" id="contact" placeholder="微信 / 邮箱">
 
-            <button type="submit">▶ 发送</button>
+            <button type="submit" class="yellow-btn">▶ 发送</button>
         </form>
         <div id="result" class="hidden"></div>
-    </main>
+    </section>
+</main>
 
-    <footer>
-        <p>// END OF LOG · 第七号样本终端 v0.7</p>
-    </footer>
+<footer class="bottombar">
+    <span>// END OF LOG · 第七号样本终端 v0.7</span>
+    <span class="sep">|</span>
+    <span>慢慢来，比较快</span>
+</footer>
 
-    <script>
-        const SEND_KEY = "SCT384994TC0RBevq4V56g7ErmtUYTTXMJ"; // ← 换成你的真实 SendKey
-        const form = document.getElementById('guestForm');
-        const result = document.getElementById('result');
+<script>
+    const SEND_KEY = "SCTxxxxxx"; // ← 换成你的真实 SendKey
+    const form = document.getElementById('guestForm');
+    const result = document.getElementById('result');
 
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const name = document.getElementById('name').value.trim();
-            const message = document.getElementById('message').value.trim();
-            const contact = document.getElementById('contact').value.trim();
-            const title = encodeURIComponent(`终端新讯息 - ${name}`);
-            const desp = encodeURIComponent(`通讯内容：${message}\n\n回执地址：${contact || '未提供'}`);
-            const url = `https://sctapi.ftqq.com/${SEND_KEY}.send?title=${title}&desp=${desp}`;
-            try {
-                const res = await fetch(url);
-                const data = await res.json();
-                result.className = data.code === 0 ? 'success' : 'error';
-                result.textContent = data.code === 0 ? '✓ 发送成功！终端已收到。' : '✗ 发送失败，请重试。';
-                if (data.code === 0) form.reset();
-            } catch {
-                result.className = 'error';
-                result.textContent = '✗ 网络异常，请稍后重试。';
-            }
-            result.classList.remove('hidden');
-        });
-    </script>
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const name = document.getElementById('name').value.trim();
+        const message = document.getElementById('message').value.trim();
+        const contact = document.getElementById('contact').value.trim();
+        const title = encodeURIComponent(`终端新讯息 - ${name}`);
+        const desp = encodeURIComponent(`通讯内容：${message}\n\n回执地址：${contact || '未提供'}`);
+        const url = `https://sctapi.ftqq.com/${SEND_KEY}.send?title=${title}&desp=${desp}`;
+        try {
+            const res = await fetch(url);
+            const data = await res.json();
+            result.className = data.code === 0 ? 'success' : 'error';
+            result.textContent = data.code === 0 ? '✓ 发送成功！终端已收到。' : '✗ 发送失败，请重试。';
+            if (data.code === 0) form.reset();
+        } catch {
+            result.className = 'error';
+            result.textContent = '✗ 网络异常，请稍后重试。';
+        }
+        result.classList.remove('hidden');
+    });
+</script>
+
 </body>
 </html>
