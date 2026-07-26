@@ -1,89 +1,46 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>留言板 · Pong Terminal</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>留言板</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<div class="bg-grid"></div>
-
-<header class="topbar">
-    <div class="topbar-left">
-        <span class="dot"></span>
-        <span>MODULE://guestbook</span>
-        <span class="sep">|</span>
-        <span>外部通讯信道</span>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">s-ssss / 样本终端</div>
+      <nav>
+        <a href="index.html">首页</a>
+        <a href="plog.html">相片墙</a>
+        <a href="workshop.html">代码工坊</a>
+        <a href="guestbook.html" class="active">留言板</a>
+      </nav>
     </div>
-    <div class="topbar-right">
-        <span>CHANNEL // OPEN</span>
-    </div>
-</header>
+  </header>
 
-<main class="page-layout">
-    <aside class="page-sidebar">
-        <div class="side-title">// NAV</div>
-        <a href="index.html" class="side-btn"><span class="side-icon">◆</span><span>首页</span></a>
-        <a href="plog.html" class="side-btn"><span class="side-icon">📷</span><span>相片墙</span></a>
-        <a href="workshop.html" class="side-btn"><span class="side-icon">⚙</span><span>代码工坊</span></a>
-        <a href="guestbook.html" class="side-btn active"><span class="side-icon">✍</span><span>留言板</span></a>
-    </aside>
+  <main class="content">
+    <h1>留言板</h1>
+    <p>随便写点什么，终端会假装接收一下。</p>
 
-    <section class="page-content">
-        <h1 class="page-title">✍ 留言板</h1>
-        <p class="page-subtitle">// 随便写点什么，终端会转发到我的微信。</p>
+    <form onsubmit="event.preventDefault(); alert('演示：静态页暂时不能真的发送，后面可接 Formspree / 后端。');">
+      <label for="name">称呼</label>
+      <input id="name" type="text" placeholder="输入你的代号" required />
 
-        <form id="guestForm">
-            <label for="name">// 称呼</label>
-            <input type="text" id="name" placeholder="输入你的代号" required>
+      <label for="message">通讯内容</label>
+      <textarea id="message" rows="6" placeholder="输入要发送的信息..." required></textarea>
 
-            <label for="message">// 通讯内容</label>
-            <textarea id="message" rows="5" placeholder="输入要发送的信息..." required></textarea>
+      <label for="contact">回执地址，选填</label>
+      <input id="contact" type="text" placeholder="微信 / 邮箱 / 其他" />
 
-            <label for="contact">// 回执地址（选填）</label>
-            <input type="text" id="contact" placeholder="微信 / 邮箱">
+      <button type="submit" class="btn" style="margin-top:18px;">发送</button>
+    </form>
+  </main>
 
-            <button type="submit" class="yellow-btn">▶ 发送</button>
-        </form>
-        <div id="result" class="hidden"></div>
-    </section>
-</main>
-
-<footer class="bottombar">
-    <span>// END OF LOG · 第七号样本终端 v0.7</span>
-    <span class="sep">|</span>
-    <span>慢慢来，比较快</span>
-</footer>
-
-<script>
-    const SEND_KEY = "SCTxxxxxx"; // ← 换成你的真实 SendKey
-    const form = document.getElementById('guestForm');
-    const result = document.getElementById('result');
-
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const name = document.getElementById('name').value.trim();
-        const message = document.getElementById('message').value.trim();
-        const contact = document.getElementById('contact').value.trim();
-        const title = encodeURIComponent(`终端新讯息 - ${name}`);
-        const desp = encodeURIComponent(`通讯内容：${message}\n\n回执地址：${contact || '未提供'}`);
-        const url = `https://sctapi.ftqq.com/${SEND_KEY}.send?title=${title}&desp=${desp}`;
-        try {
-            const res = await fetch(url);
-            const data = await res.json();
-            result.className = data.code === 0 ? 'success' : 'error';
-            result.textContent = data.code === 0 ? '✓ 发送成功！终端已收到。' : '✗ 发送失败，请重试。';
-            if (data.code === 0) form.reset();
-        } catch {
-            result.className = 'error';
-            result.textContent = '✗ 网络异常，请稍后重试。';
-        }
-        result.classList.remove('hidden');
-    });
-</script>
+  <footer class="site-footer">
+    <p>// END OF LOG · guestbook</p>
+  </footer>
 
 </body>
 </html>
