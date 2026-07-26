@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RedCat | Home</title>
+<meta name="description" content="RedCat 摄影日志 · 柯基多多 · 日常随拍">
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- 加载动画 -->
+<div class="preloader">
+    <div class="preloader-inner">
+        <span>R</span><span>E</span><span>D</span><span>C</span><span>A</span><span>T</span>
+    </div>
+</div>
+
+<!-- 背景大图 -->
+<div class="bg-slide" id="bgSlide"></div>
+<div class="bg-overlay"></div>
+
+<!-- 顶部导航 -->
+<header class="site-header" id="header">
+    <div class="header-inner">
+        <a href="index.html" class="logo">Red<span>Cat</span></a>
+        <nav class="main-nav">
+            <a href="index.html" class="active">主页</a>
+            <a href="portfolio.html">作品</a>
+            <a href="about.html">关于</a>
+            <a href="blog.html">博客</a>
+            <a href="contact.html">联系</a>
+        </nav>
+        <button class="menu-toggle" id="menuToggle">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</header>
+
+<!-- 侧边信息 -->
+<aside class="side-info">
+    <div class="side-text">SCROLL</div>
+    <div class="side-line"></div>
+</aside>
+
+<!-- 主内容 -->
+<main class="hero">
+    <div class="hero-inner">
+        <p class="hero-tag" id="heroTag">Collect from RedCat</p>
+        <h1 class="hero-title" id="heroTitle">01.<br>我家的corgi多多</h1>
+        <p class="hero-desc" id="heroDesc">天亮前，烤箱和服务器都在默默工作。</p>
+        <div class="hero-actions">
+            <a href="portfolio.html" class="btn-outline">查看作品</a>
+            <a href="contact.html" class="btn-text">留言 →</a>
+        </div>
+    </div>
+
+    <!-- 缩略图列表 -->
+    <div class="thumbs" id="thumbs"></div>
+</main>
+
+<!-- 底部 -->
+<footer class="site-footer">
+    <div class="footer-left">
+        <span id="copyright"></span> RedCat · All rights reserved
+    </div>
+    <div class="footer-right">
+        <a href="https://github.com/s-ssss" target="_blank">GitHub</a>
+    </div>
+</footer>
+
+<!-- 可复制数据（隐藏触发） -->
+<div class="copy-data" id="copyData" title="点击复制"></div>
+
+<script src="data.js"></script>
+<script>
+// 预加载
+window.addEventListener('load', ()=>{
+    document.querySelector('.preloader').style.opacity='0';
+    setTimeout(()=>document.querySelector('.preloader').remove(),600);
+});
+
+// 背景图列表（和data.js里的photos对应）
+const slides = photos.map(p=>({src:p.src, title:p.title, desc:p.tag, num:p.num}));
+let cur=0;
+const bg=document.getElementById('bgSlide');
+const heroTitle=document.getElementById('heroTitle');
+const heroDesc=document.getElementById('heroDesc');
+const heroTag=document.getElementById('heroTag');
+
+function setSlide(i){
+    cur=i;
+    const s=slides[i];
+    bg.style.backgroundImage=`url('${s.src}')`;
+    heroTitle.innerHTML=`${s.num}<br>${s.title}`;
+    heroDesc.textContent=s.desc||'';
+    heroTag.textContent=`Collect from RedCat · ${i+1}/${slides.length}`;
+    document.querySelectorAll('.thumb').forEach((t,idx)=>t.classList.toggle('active',idx===i));
+}
+
+// 渲染缩略图
+const thumbsEl=document.getElementById('thumbs');
+slides.forEach((s,i)=>{
+    const t=document.createElement('div');
+    t.className='thumb'+(i===0?' active':'');
+    t.innerHTML=`<img src="${s.src}" alt=""><span>${s.num}</span>`;
+    t.onclick=()=>setSlide(i);
+    thumbsEl.appendChild(t);
+});
+
+// 自动轮播
+setInterval(()=>setSlide((cur+1)%slides.length),6000);
+setSlide(0);
+
+// 版权年份
+document.getElementById('copyright').textContent='© '+new Date().getFullYear();
+
+// 菜单
+document.getElementById('menuToggle').onclick=()=>{
+    document.querySelector('.main-nav').classList.toggle('open');
+};
+
+// 滚动视差
+window.addEventListener('scroll',()=>{
+    const y=window.scrollY;
+    bg.style.transform=`translateY(${y*0.3}px) scale(1.05)`;
+});
+</script>
+
+</body>
+</html>

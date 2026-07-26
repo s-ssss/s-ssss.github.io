@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RedCat | 作品</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="preloader"><div class="preloader-inner"><span>R</span><span>E</span><span>D</span><span>C</span><span>A</span><span>T</span></div></div>
+
+<header class="site-header">
+    <div class="header-inner">
+        <a href="index.html" class="logo">Red<span>Cat</span></a>
+        <nav class="main-nav">
+            <a href="index.html">主页</a>
+            <a href="portfolio.html" class="active">作品</a>
+            <a href="about.html">关于</a>
+            <a href="blog.html">博客</a>
+            <a href="contact.html">联系</a>
+        </nav>
+        <button class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></button>
+    </div>
+</header>
+
+<main class="portfolio-page">
+    <div class="page-header">
+        <p class="page-tag">PORTFOLIO</p>
+        <h1>作品集</h1>
+        <p class="page-desc">柯基多多 · 饮品手记 · 厨房日记 · 散步随拍</p>
+    </div>
+
+    <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">全部</button>
+        <button class="filter-btn" data-filter="corgi">🐾 柯基</button>
+        <button class="filter-btn" data-filter="drink">🥤 饮品</button>
+        <button class="filter-btn" data-filter="kitchen">🍳 厨房</button>
+        <button class="filter-btn" data-filter="walk">🌿 随拍</button>
+    </div>
+
+    <div class="masonry" id="masonry"></div>
+</main>
+
+<footer class="site-footer">
+    <div class="footer-left"><span id="copyright2"></span> RedCat · All rights reserved</div>
+    <div class="footer-right"><a href="https://github.com/s-ssss" target="_blank">GitHub</a></div>
+</footer>
+
+<script src="data.js"></script>
+<script>
+window.addEventListener('load',()=>{
+    document.querySelector('.preloader').style.opacity='0';
+    setTimeout(()=>document.querySelector('.preloader').remove(),600);
+});
+
+const masonry=document.getElementById('masonry');
+photos.forEach((p,i)=>{
+    const item=document.createElement('div');
+    item.className=`m-item cat-${p.cat}`;
+    item.innerHTML=`<img src="${p.src}" alt="${p.title}" loading="lazy"><div class="m-overlay"><span class="m-num">${p.num}</span><span class="m-title">${p.title}</span></div>`;
+    item.onclick=()=>{window.location.href='contact.html'};
+    masonry.appendChild(item);
+});
+
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+    btn.onclick=()=>{
+        document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');
+        const f=btn.dataset.filter;
+        document.querySelectorAll('.m-item').forEach(item=>{
+            item.style.display=(f==='all'||item.classList.contains('cat-'+f))?'block':'none';
+        });
+    };
+});
+
+document.getElementById('copyright2').textContent='© '+new Date().getFullYear();
+document.getElementById('menuToggle').onclick=()=>{
+    document.querySelector('.main-nav').classList.toggle('open');
+};
+</script>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RedCat | 博客</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="preloader"><div class="preloader-inner"><span>R</span><span>E</span><span>D</span><span>C</span><span>A</span><span>T</span></div></div>
+
+<header class="site-header">
+    <div class="header-inner">
+        <a href="index.html" class="logo">Red<span>Cat</span></a>
+        <nav class="main-nav">
+            <a href="index.html">主页</a>
+            <a href="portfolio.html">作品</a>
+            <a href="about.html">关于</a>
+            <a href="blog.html" class="active">博客</a>
+            <a href="contact.html">联系</a>
+        </nav>
+        <button class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></button>
+    </div>
+</header>
+
+<main class="blog-page">
+    <div class="page-header">
+        <p class="page-tag">BL.OG</p>
+        <h1>博客</h1>
+        <p class="page-desc">饮品配方 · 代码碎片 · 生活随记</p>
+    </div>
+
+    <div class="blog-grid" id="blogGrid"></div>
+</main>
+
+<footer class="site-footer">
+    <div class="footer-left"><span id="copyright4"></span> RedCat · All rights reserved</div>
+    <div class="footer-right"><a href="https://github.com/s-ssss" target="_blank">GitHub</a></div>
+</footer>
+
+<script>
+window.addEventListener('load',()=>{
+    document.querySelector('.preloader').style.opacity='0';
+    setTimeout(()=>document.querySelector('.preloader').remove(),600);
+});
+
+const posts=[
+    {title:'海盐芝士茉莉', date:'2026.07.25', tag:'🥤 饮品手记', desc:'茶底冷萃6小时，奶盖撒海盐。夏天的解药。', img:'images/drink01.jpg'},
+    {title:'烤箱里的面包', date:'2026.07.24', tag:'🍳 厨房日记', desc:'第一次发酵过头，第二次刚刚好。记录温度和时间。', img:'images/bread01.jpg'},
+    {title:'薄荷青柠气泡', date:'2026.07.22', tag:'🥤 饮品手记', desc:'薄荷叶要拍碎才出味，青柠最后放。', img:'images/drink02.jpg'},
+    {title:'桂花酒酿拿铁', date:'2026.07.19', tag:'🥤 饮品手记', desc:'冬天限定。酒酿自己酿，奶咖比例 1:3。', img:'images/drink03.jpg'},
+    {title:'森空岛签到脚本', date:'2026.07.15', tag:'⚙ 代码碎片', desc:'Rust + GitHub Actions，每天凌晨自动跑。', img:'images/code01.jpg'},
+    {title:'傍晚的天空', date:'2026.07.23', tag:'🌇 随拍', desc:'回家路上抬头拍的。', img:'images/sky01.jpg'},
+];
+
+const grid=document.getElementById('blogGrid');
+posts.forEach(p=>{
+    const card=document.createElement('article');
+    card.className='blog-card';
+    card.innerHTML=`
+        <div class="blog-img" style="background-image:url('${p.img}')"></div>
+        <div class="blog-body">
+            <span class="blog-date">${p.date} · ${p.tag}</span>
+            <h3>${p.title}</h3>
+            <p>${p.desc}</p>
+            <a href="contact.html" class="read-more">阅读更多 →</a>
+        </div>`;
+    grid.appendChild(card);
+});
+
+document.getElementById('copyright4').textContent='© '+new Date().getFullYear();
+document.getElementById('menuToggle').onclick=()=>{
+    document.querySelector('.main-nav').classList.toggle('open');
+};
+</script>
+
+</body>
+</html>
