@@ -1,132 +1,77 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>s-ssss 样本终端 · 简版站</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>s-ssss · RedCat</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <header class="site-header">
-    <div class="header-inner">
-      <div class="logo">s-ssss / 样本终端</div>
+<div class="wallpaper"></div>
 
-      <nav>
-        <a href="index.html" class="active">首页</a>
-        <a href="plog.html">相片墙</a>
-        <a href="workshop.html">代码工坊</a>
-        <a href="guestbook.html">留言板</a>
-      </nav>
+<!-- 横滑容器 -->
+<main class="reel" id="reel">
+  <div class="reel-track" id="track">
+    <figure class="shot" data-full="images/p1.jpg"><img src="images/p1.jpg" alt=""></figure>
+    <figure class="shot" data-full="images/p2.jpg"><img src="images/p2.jpg" alt=""></figure>
+    <figure class="shot" data-full="images/p3.jpg"><img src="images/p3.jpg" alt=""></figure>
+    <figure class="shot" data-full="images/p4.jpg"><img src="images/p4.jpg" alt=""></figure>
+    <figure class="shot" data-full="images/p5.jpg"><img src="images/p5.jpg" alt=""></figure>
+  </div>
+</main>
 
-      <div class="search-box">
-        <input type="text" placeholder="搜索..." />
-      </div>
-    </div>
-  </header>
+<!-- 浮层 UI -->
+<header class="overlay-top">
+  <div class="brand">s-ssss / RedCat</div>
+  <nav>
+    <a href="plog.html">相片墙</a>
+    <a href="workshop.html">代码工坊</a>
+    <a href="guestbook.html">留言板</a>
+  </nav>
+</header>
 
-  <section class="hero">
-    <div class="hero-text">
-      <p class="tag">// SAMPLE TERMINAL</p>
-      <h1>第七号样本</h1>
-      <p class="desc">
-        这里放一些照片、代码、留言和可复制的小数据。
-        风格换简单一点，先保证能看、能用、不乱。
-      </p>
-      <div class="hero-links">
-        <a class="btn" href="guestbook.html">去留言</a>
-        <a class="btn ghost" href="plog.html">看相片墙</a>
-      </div>
-    </div>
-  </section>
+<footer class="overlay-bottom">
+  <div class="hint">← 拖拽 / 滚轮横向浏览 →</div>
+  <div class="copy-mini" id="copyMini">🧊 海盐芝士茉莉（点击复制）</div>
+</footer>
 
-  <main class="content">
+<div id="lightbox" class="hidden"><img id="lbImg" src="" alt=""><span id="lbClose">×</span></div>
 
-    <section class="cards">
+<script>
+const track = document.getElementById('track');
+const reel = document.getElementById('reel');
+const wall = document.querySelector('.wallpaper');
+let pos = 0, target = 0, maxPos = 0;
 
-      <article class="card">
-        <div class="card-img img-1"></div>
-        <div class="card-body">
-          <h3>相片墙</h3>
-          <p>放照片、截图、日常记录的地方。</p>
-          <a href="plog.html">打开 →</a>
-        </div>
-      </article>
+function calcMax(){
+  maxPos = Math.max(0, track.scrollWidth - window.innerWidth);
+}
+calcMax();
+window.addEventListener('resize', calcMax);
 
-      <article class="card">
-        <div class="card-img img-2"></div>
-        <div class="card-body">
-          <h3>代码工坊</h3>
-          <p>一些自动脚本、小工具和实验项目。</p>
-          <a href="workshop.html">打开 →</a>
-        </div>
-      </article>
+// 滚轮横向
+reel.addEventListener('wheel', e => {
+  e.preventDefault();
+  target += (e.deltaY + e.deltaX) * 0.6;
+  target = Math.min(maxPos, Math.max(0, target));
+}, {passive:false});
 
-      <article class="card">
-        <div class="card-img img-3"></div>
-        <div class="card-body">
-          <h3>留言板</h3>
-          <p>外部通讯信道，随便写点什么。</p>
-          <a href="guestbook.html">打开 →</a>
-        </div>
-      </article>
+// 拖拽
+let dragging=false, startX=0, startTarget=0;
+reel.addEventListener('pointerdown', e=>{
+  dragging=true; startX=e.clientX; startTarget=target;
+  reel.setPointerCapture(e.pointerId);
+});
+reel.addEventListener('pointermove', e=>{
+  if(!dragging) return;
+  target = Math.min(maxPos, Math.max(0, startTarget - (e.clientX-startX)*1.4));
+});
+reel.addEventListener('pointerup', ()=>dragging=false);
+reel.addEventListener('pointerleave', ()=>dragging=false);
 
-    </section>
-
-    <section class="copy-section">
-      <h2>可复制数据</h2>
-      <p class="sub">点一下就能复制。</p>
-
-      <div class="copy-list">
-        <div class="copy-item" data-copy="海盐芝士茉莉">🧊 海盐芝士茉莉</div>
-        <div class="copy-item" data-copy="桂花酒酿拿铁">🍶 桂花酒酿拿铁</div>
-        <div class="copy-item" data-copy="薄荷青柠气泡">🍃 薄荷青柠气泡</div>
-        <div class="copy-item" data-copy="签名档：第七号样本终端">📄 签名档</div>
-      </div>
-
-      <p id="copy-tip" class="copy-tip">等待复制...</p>
-    </section>
-
-  </main>
-
-  <footer class="site-footer">
-    <p>// END OF LOG · s-ssss.github.io · 2026</p>
-  </footer>
-
-  <script>
-    const items = document.querySelectorAll(".copy-item");
-    const tip = document.getElementById("copy-tip");
-
-    items.forEach(item => {
-      item.addEventListener("click", () => {
-        const text = item.getAttribute("data-copy");
-
-        if (navigator.clipboard && window.isSecureContext) {
-          navigator.clipboard.writeText(text).then(() => {
-            tip.textContent = "已复制：" + text;
-          }).catch(() => fallbackCopy(text));
-        } else {
-          fallbackCopy(text);
-        }
-      });
-    });
-
-    function fallbackCopy(text) {
-      const ta = document.createElement("textarea");
-      ta.value = text;
-      ta.style.position = "fixed";
-      ta.style.left = "-9999px";
-      document.body.appendChild(ta);
-      ta.select();
-      try {
-        document.execCommand("copy");
-        tip.textContent = "已复制：" + text;
-      } catch {
-        tip.textContent = "复制失败，请手动选择文本";
-      }
-      document.body.removeChild(ta);
-    }
-  </script>
-
-</body>
-</html>
+// 平滑
+function raf(){
+  pos += (target - pos) * 0.08;
+  track.style.transform = `translate3d(${-pos}px,0,0)`;
+  wall.style.transform = `translate3d(${-pos*0.
