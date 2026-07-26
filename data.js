@@ -1,15 +1,11 @@
-/* ========== CDN 配置 ========== */
-// true = jsDelivr 加速  |  false = 走 GitHub Pages 原路径
+/* ========== CDN 配置（gcore 节点，国内更稳） ========== */
 const USE_CDN = true;
-
-const CDN_BASE = USE_CDN
-  ? "https://cdn.jsdelivr.net/gh/s-ssss/s-ssss.github.io@main"
-  : "";
+const CDN_BASE = "https://gcore.jsdelivr.net/gh/s-ssss/s-ssss.github.io@main";
 
 function imgUrl(path) {
-  return CDN_BASE ? `${CDN_BASE}/${path}` : path;
+  return CDN_BASE + '/' + path.replace(/^\//, '');
 }
-/* ============================ */
+/* ===================================================== */
 
 const photos = [
   { num:"01.", title:"我家的corgi多多", desc:"柯基多多の日常", cat:"corgi", src: imgUrl("images/p01.jpg"), tag:"🐾 柯基日常" },
