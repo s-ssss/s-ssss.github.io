@@ -8,64 +8,79 @@
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="hud-bar">
-            <span class="left">MODULE://photo_wall · 影像数据库</span>
-            <span class="right">ACCESS // GRANTED</span>
-        </div>
-        <h1>相片墙</h1>
-        <nav>
-            <a href="index.html">▷ 首页</a>
-            <a href="plog.html" class="active">▷ 相片墙</a>
-            <a href="workshop.html">▷ 代码工坊</a>
-            <a href="guestbook.html">▷ 留言板</a>
-        </nav>
-    </header>
 
-    <main>
-        <section id="photoWall"></section>
-    </main>
+<div class="bg-grid"></div>
 
-    <div id="lightbox" class="hidden">
-        <span id="closeBtn">&times;</span>
-        <img id="lightboxImg" src="" alt="">
-        <div id="lightboxCaption"></div>
+<header class="topbar">
+    <div class="topbar-left">
+        <span class="dot"></span>
+        <span>MODULE://photo_wall</span>
+        <span class="sep">|</span>
+        <span>影像数据库</span>
     </div>
+    <div class="topbar-right">
+        <span>ACCESS // GRANTED</span>
+    </div>
+</header>
 
-    <footer>
-        <p>// END OF LOG · 第七号样本终端 v0.7</p>
-    </footer>
+<main class="page-layout">
+    <aside class="page-sidebar">
+        <div class="side-title">// NAV</div>
+        <a href="index.html" class="side-btn"><span class="side-icon">◆</span><span>首页</span></a>
+        <a href="plog.html" class="side-btn active"><span class="side-icon">📷</span><span>相片墙</span></a>
+        <a href="workshop.html" class="side-btn"><span class="side-icon">⚙</span><span>代码工坊</span></a>
+        <a href="guestbook.html" class="side-btn"><span class="side-icon">✍</span><span>留言板</span></a>
+    </aside>
 
-    <script src="data.js"></script>
-    <script>
-        const wall = document.getElementById('photoWall');
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightboxImg');
-        const lightboxCaption = document.getElementById('lightboxCaption');
+    <section class="page-content">
+        <h1 class="page-title">📷 相片墙</h1>
+        <div id="photoWall"></div>
+    </section>
+</main>
 
-        const groups = {};
-        photos.forEach(p => { if (!groups[p.date]) groups[p.date] = []; groups[p.date].push(p); });
+<div id="lightbox" class="hidden">
+    <span id="closeBtn">&times;</span>
+    <img id="lightboxImg" src="" alt="">
+    <div id="lightboxCaption"></div>
+</div>
 
-        Object.keys(groups).sort((a,b) => b.localeCompare(a)).forEach(date => {
-            const group = document.createElement('div');
-            group.className = 'date-group';
-            group.innerHTML = `<h2>▷ DATE: ${date}</h2>`;
-            const grid = document.createElement('div');
-            grid.className = 'grid';
-            groups[date].forEach(p => {
-                const card = document.createElement('div');
-                card.className = 'card';
-                card.innerHTML = `<img src="${p.src}" alt="${p.title}" loading="lazy"><div class="info"><h3>${p.title}</h3><p>${p.tag}</p></div>`;
-                card.onclick = () => { lightboxImg.src = p.src; lightboxCaption.textContent = `▷ ${p.title} · ${p.date}`; lightbox.classList.remove('hidden'); };
-                grid.appendChild(card);
-            });
-            group.appendChild(grid);
-            wall.appendChild(group);
+<footer class="bottombar">
+    <span>// END OF LOG · 第七号样本终端 v0.7</span>
+    <span class="sep">|</span>
+    <span>慢慢来，比较快</span>
+</footer>
+
+<script src="data.js"></script>
+<script>
+    const wall = document.getElementById('photoWall');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxCaption = document.getElementById('lightboxCaption');
+
+    const groups = {};
+    photos.forEach(p => { if (!groups[p.date]) groups[p.date] = []; groups[p.date].push(p); });
+
+    Object.keys(groups).sort((a,b) => b.localeCompare(a)).forEach(date => {
+        const group = document.createElement('div');
+        group.className = 'date-group';
+        group.innerHTML = `<h2>▷ DATE: ${date}</h2>`;
+        const grid = document.createElement('div');
+        grid.className = 'grid';
+        groups[date].forEach(p => {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.innerHTML = `<img src="${p.src}" alt="${p.title}" loading="lazy"><div class="info"><h3>${p.title}</h3><p>${p.tag}</p></div>`;
+            card.onclick = () => { lightboxImg.src = p.src; lightboxCaption.textContent = `▷ ${p.title} · ${p.date}`; lightbox.classList.remove('hidden'); };
+            grid.appendChild(card);
         });
+        group.appendChild(grid);
+        wall.appendChild(group);
+    });
 
-        document.getElementById('closeBtn').onclick = () => lightbox.classList.add('hidden');
-        lightbox.onclick = (e) => { if(e.target === lightbox) lightbox.classList.add('hidden'); };
-        document.addEventListener('keydown', (e) => { if(e.key === 'Escape') lightbox.classList.add('hidden'); });
-    </script>
+    document.getElementById('closeBtn').onclick = () => lightbox.classList.add('hidden');
+    lightbox.onclick = (e) => { if(e.target === lightbox) lightbox.classList.add('hidden'); };
+    document.addEventListener('keydown', (e) => { if(e.key === 'Escape') lightbox.classList.add('hidden'); });
+</script>
+
 </body>
 </html>
